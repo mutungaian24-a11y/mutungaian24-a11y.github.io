@@ -1,0 +1,159 @@
+.hero {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  position: relative;
+  background: var(--color-background);
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  padding-bottom: var(--spacing-xl);
+  overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Subtle ambient bloom for Hero to match Carousel */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@font-face {
+  font-family: 'spaceage';
+  src: url('../../../assets/fonts/space age.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.spaceage {
+  font-family: 'spaceage', var(--font-display, sans-serif);
+}
+
+/* Embedded Navigation */
+.nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+}
+
+.navLogo {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.navLinks {
+  display: flex;
+  gap: var(--spacing-2xl);
+  justify-content: center;
+}
+
+.navLink {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+}
+
+.navActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.themeToggle {
+  background: none;
+  border: none;
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  transition: color 0.2s;
+}
+
+.themeToggle:hover {
+  color: var(--color-text-primary);
+}
+
+/* Central Visual Focus */
+.heroCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-2xl);
+}
+
+.headline {
+  font-size: clamp(3rem, 12vw, 10rem);
+  font-weight: 700;
+  line-height: 0.9;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.accent {
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Brand Anchors */
+.heroBrand {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.heroMeta {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding-bottom: var(--spacing-md);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .nav {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: var(--spacing-md);
+  }
+  
+  .navLinks {
+    order: 2;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+  
+  .navActions {
+    order: 1;
+    justify-content: center;
+  }
+  
+  .headline {
+    font-size: clamp(2.5rem, 10vw, 6rem);
+  }
+}

@@ -1,0 +1,115 @@
+/* Global Styles */
+@import './variables.css';
+
+/* Dongraffiti font for Munguti brand name */
+@font-face {
+  font-family: 'Dongraffiti';
+  src: url('../assets/fonts/DonGraffiti.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utility to apply the brand script font wherever needed */
+.brand-font {
+  font-family: 'Dongraffiti', var(--font-display) !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-accent-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-secondary);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 100%; /* make container full-bleed by default */
+  margin: 0 auto;
+  /* match hero horizontal padding for consistent page frame */
+  padding: 0 var(--spacing-2xl);
+}
+
+.container-wide {
+  max-width: 1536px;
+}
+
+.container-narrow {
+  max-width: 768px;
+}
+
+.section {
+  padding: var(--spacing-4xl) 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-3xl) 0;
+  }
+}

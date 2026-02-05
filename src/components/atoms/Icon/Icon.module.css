@@ -1,0 +1,13 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+}
+
+.sm { font-size: var(--text-sm); }
+.md { font-size: var(--text-base); }
+.lg { font-size: var(--text-xl); }
+.xl { font-size: var(--text-3xl); }
+
+.icon svg { width: 1em; height: 1em; display: block; }
