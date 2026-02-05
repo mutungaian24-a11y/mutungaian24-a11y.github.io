@@ -11,6 +11,8 @@ export const Nav: React.FC<{ onToggleMenu?: () => void }> = ({ onToggleMenu }) =
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
+    // notify parent toggle if provided
+    onToggleMenu?.()
   }
 
   const closeMobileMenu = () => {

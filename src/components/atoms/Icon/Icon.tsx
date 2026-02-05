@@ -7,7 +7,7 @@ export interface IconProps {
   className?: string
 }
 
-const IconSVGs: Record<string, JSX.Element> = {
+const IconSVGs: Record<string, React.ReactElement> = {
   craftsmanship: (
     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden>
       <path d="M12 2L15 8l6 .5-4.5 3.5L19 20l-7-4-7 4 2.5-8-4.5-3.5L9 8 12 2z" />
